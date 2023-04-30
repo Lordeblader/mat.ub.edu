@@ -5,6 +5,7 @@ import { SlideData } from "@/components/Slideshow";
 import Graduation from "@/assets/images/graduation-2148715_1920.jpg";
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa";
+import Head from "next/head";
 
 interface ActualitatItem {
   title: string;
@@ -84,6 +85,9 @@ export default function Home() {
 
   return (
     <main>
+      <Head>
+        <title>Inici | Facultat de Matemàtiques i Informàtica</title>
+      </Head>
       <Navbar />
       <SlideShow slides={slides} />
       <div className="flex flex-col-reverse sm:flex-row p-5 md:p-10">

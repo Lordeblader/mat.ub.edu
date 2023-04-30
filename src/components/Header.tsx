@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -14,31 +15,36 @@ export interface BreadcrumbLink {
 
 const Header = ({ title, subtitle, breadcrumbs }: HeaderProps) => {
   return (
-    <div className="bg-gray-50 px-6 md:px-10 lg:px-14 py-8">
-      <div className="text-sm text-gray-400 mb-6 ml-1">
-        {breadcrumbs.map((value: BreadcrumbLink, index) => (
-          <>
-            {value.url ? (
-              <Link href={value.url}>
+    <>
+      <Head>
+        <title>{title} | Facultat de Matemàtiques i Informàtica</title>
+      </Head>
+      <div className="bg-gray-50 px-6 md:px-10 lg:px-14 py-8">
+        <div className="text-sm text-gray-400 mb-6 ml-1">
+          {breadcrumbs.map((value: BreadcrumbLink, index) => (
+            <>
+              {value.url ? (
+                <Link href={value.url}>
+                  <span key={index} className="inline">
+                    {value.title}
+                  </span>
+                </Link>
+              ) : (
                 <span key={index} className="inline">
                   {value.title}
                 </span>
-              </Link>
-            ) : (
-              <span key={index} className="inline">
-                {value.title}
-              </span>
-            )}
-            <FaAngleRight className="text-gray-400 inline mx-4" />
-          </>
-        ))}
-        <span className="inline text-gray-600 font-normal">{title}</span>
+              )}
+              <FaAngleRight className="text-gray-400 inline mx-4" />
+            </>
+          ))}
+          <span className="inline text-gray-600 font-normal">{title}</span>
+        </div>
+        <div>
+          <h1 className="text-4xl">{title}</h1>
+          <p className="mt-2 mb-5 font-normal text-gray-400">{subtitle}</p>
+        </div>
       </div>
-      <div>
-        <h1 className="text-4xl">{title}</h1>
-        <p className="mt-2 mb-5 font-normal text-gray-400">{subtitle}</p>
-      </div>
-    </div>
+    </>
   );
 };
 
