@@ -91,7 +91,7 @@ export default function Home() {
           <div className="w-full lg:w-1/2 mb-12 sm:px-4 lg:px-6 lg:border-r lg:border-gray-300">
             <div className="flex justify-between">
               <h2 className="text-2xl">Agenda</h2>
-              <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1">
+              <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1 font-medium hover:bg-zinc-500 hover:text-white transition-colors duration-200">
                 Veure tot
               </button>
             </div>
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="w-full lg:w-1/2 mb-12 sm:px-4 lg:px-6">
             <div className="flex justify-between mb-5">
               <h2 className="text-2xl">Actualitat</h2>
-              <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1">
+              <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1 font-medium hover:bg-zinc-500 hover:text-white transition-colors duration-200">
                 Veure tot
               </button>
             </div>
