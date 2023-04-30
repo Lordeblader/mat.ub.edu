@@ -134,8 +134,8 @@ export default function Estudis() {
         subtitle="Lorem ipsum dolor sit amet"
         breadcrumbs={breadcrumbs}
       />
-      <div className="flex px-12 py-10">
-        <div className="w-1/4 pr-8">
+      <div className="flex flex-col md:flex-row px-5 md:px-10 lg:px-14 py-10">
+        <div className="md:w-1/4 mb-20 md:mb-0 md:px-0 md:pr-8">
           {sideMenu.map((value, index) => (
             <Link
               href={value.url ?? ""}
@@ -151,7 +151,7 @@ export default function Estudis() {
             </Link>
           ))}
         </div>
-        <div className="w-3/4 px-4">
+        <div className="md:w-3/4 md:px-4">
           <p className="mb-6">
             {`La Facultat de Matemàtiques i Informàtica de la UB ofereix dos graus, tres dobles graus, tres màsters i està involucrada en els programes de doctorat de Matemàtiques i d'Enginyeries`}
           </p>
@@ -172,20 +172,20 @@ export default function Estudis() {
                 <div className="py-5 px-1">
                   <p>{section.description}</p>
 
-                  <div className="mt-6 mb-8 grid grid-cols-2 gap-6">
+                  <div className="mt-6 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {section.elements.map((element, index) => (
                       <div key={index} className="">
                         <Link
-                          className="block h-60 relative overflow-hidden"
+                          className="flex justify-center items-center h-60 relative overflow-hidden"
                           href={element.url ?? ""}
                         >
                           <Image
                             src={element.img}
                             alt={element.title}
-                            className="object-cover w-full h-full"
+                            className="absolute object-cover w-full h-full"
                           />
                           <div className="absolute inset-0 bg-gradient-to-b from-[#030F1ACC] to-[#0062B288]"></div>
-                          <h3 className="text-white absolute top-[46%] w-full text-center -tranlate-y-1/2 text-2xl">
+                          <h3 className="relative text-white text-center text-2xl px-4">
                             {element.title}
                           </h3>
                         </Link>

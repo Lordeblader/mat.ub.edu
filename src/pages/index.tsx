@@ -86,10 +86,10 @@ export default function Home() {
     <main>
       <Navbar />
       <SlideShow slides={slides} />
-      <div className="flex">
-        <div className="w-3/4 flex p-10 pt-12">
-          <div className="w-1/2 pr-8 border-r border-gray-300">
-            <div className="flex justify-between mb-5">
+      <div className="flex flex-col-reverse sm:flex-row p-5 md:p-10">
+        <div className="w-full sm:w-2/3 md:w-3/4 flex flex-col lg:flex-row pt-4">
+          <div className="w-full lg:w-1/2 mb-12 sm:px-4 lg:px-6 lg:border-r lg:border-gray-300">
+            <div className="flex justify-between">
               <h2 className="text-2xl">Agenda</h2>
               <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1">
                 Veure tot
@@ -107,9 +107,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-1/2 pl-6">
+          <div className="w-full lg:w-1/2 mb-12 sm:px-4 lg:px-6">
             <div className="flex justify-between mb-5">
-              <h2 className="text-2xl">Agenda</h2>
+              <h2 className="text-2xl">Actualitat</h2>
               <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1">
                 Veure tot
               </button>
@@ -140,7 +140,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-1/4 pt-8 p-4 pr-10">
+        <div className="mb-10 md:mb-0 w-full sm:w-1/3 md:w-1/4 sm:px-4">
           {sideMenu.map((value, index) => (
             <Link
               href={value.url ?? ""}
