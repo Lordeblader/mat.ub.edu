@@ -14,4 +14,4 @@ de la pàgina existent.
 
 Podeu accedir a un deploy del lloc web mitjançant el següent enllaç:
 
-[https://mat.fleon.dev/]
+<https://mat.fleon.dev/>
