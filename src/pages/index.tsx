@@ -124,6 +124,7 @@ export default function Home() {
                   <div className="w-full relative overflow-hidden h-44">
                     <img
                       src={value.img}
+                      alt={value.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
