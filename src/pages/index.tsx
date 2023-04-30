@@ -1,118 +1,161 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Inter } from "next/font/google";
+import Navbar from "@/layout/Navbar";
+import SlideShow from "@/components/Slideshow";
+import { SlideData } from "@/components/Slideshow";
+import Graduation from "@/assets/images/graduation-2148715_1920.jpg";
+import Link from "next/link";
+import { FaAngleDown } from "react-icons/fa";
 
-const inter = Inter({ subsets: ['latin'] })
+interface ActualitatItem {
+  title: string;
+  date: string;
+  img: string;
+}
+
+export interface MenuItem {
+  title: string;
+  url?: string;
+  children?: MenuItem[];
+}
 
 export default function Home() {
+  const slides: SlideData[] = [
+    {
+      title: "Premis i ajuts",
+      subtitle: "Lorem ipsum dolor sit amet",
+      src: Graduation,
+      alt: "Premis i ajuts",
+    },
+  ];
+
+  const actualitat: ActualitatItem[] = [
+    {
+      title: "Beques Màster+UB",
+      date: "27 d'abril de 2023",
+      img: "https://mat.ub.edu/wp-content/uploads/2023/01/matematiquesinformatica-pos-rgb-300x142.jpg",
+    },
+    {
+      title: "Amb la Matefest Infofest torna «El trívial de la Biblioteca»",
+      date: "26 d'abril de 2023",
+      img: "https://mat.ub.edu/wp-content/uploads/2023/04/matefest.png",
+    },
+  ];
+
+  const sideMenu: MenuItem[] = [
+    {
+      title: "Estudis",
+    },
+    {
+      title: "Portals",
+      children: [
+        {
+          title: "Graus",
+        },
+        {
+          title: "Graus simultanis",
+        },
+        {
+          title: "Màsters",
+        },
+        {
+          title: "Doctorat",
+        },
+        {
+          title: "Postgraus",
+        },
+        {
+          title: "Màsters i postgraus propis",
+        },
+      ],
+    },
+    {
+      title: "Agenda",
+    },
+    {
+      title: "Avisos",
+    },
+    {
+      title: "Secretaria",
+    },
+    {
+      title: "Departament",
+    },
+  ];
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <Navbar />
+      <SlideShow slides={slides} />
+      <div className="flex">
+        <div className="w-3/4 flex p-10 pt-12">
+          <div className="w-1/2 pr-8 border-r border-gray-300">
+            <div className="flex justify-between mb-5">
+              <h2 className="text-2xl">Agenda</h2>
+              <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1">
+                Veure tot
+              </button>
+            </div>
+            <div>
+              <div className="border-b border-gray-200 p-4">
+                Lorem ipsum dolor sit amet
+              </div>
+              <div className="border-b border-gray-200 p-4">
+                Lorem ipsum dolor sit amet
+              </div>
+              <div className="border-b border-gray-200 p-4">
+                Lorem ipsum dolor sit amet
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 pl-6">
+            <div className="flex justify-between mb-5">
+              <h2 className="text-2xl">Agenda</h2>
+              <button className="border-2 border-gray-500 p-2 px-5 text-sm relative -top-1">
+                Veure tot
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-5">
+              {actualitat.map((value, index) => (
+                <Link
+                  href=""
+                  key={index}
+                  className="relative w-full h-72 overflow-hidden shadow-lg group"
+                >
+                  <div className="w-full relative overflow-hidden h-44">
+                    <img
+                      src={value.img}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
+                  </div>
+                  <div className="p-3">
+                    <h4 className="mb-1 max-h-12 overflow-hidden text-ellipsis whitespace-break-spaces">
+                      {value.title}
+                    </h4>
+                    <div className="text-gray-500 text-xs">{value.date}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="w-1/4 pt-8 p-4 pr-10">
+          {sideMenu.map((value, index) => (
+            <Link
+              href={value.url ?? ""}
+              key={index}
+              className="py-4 block border-b border-gray-300 text-sm font-medium relative"
+            >
+              {value.title}
+              {value.children && (
+                <div className="absolute right-3 inset-y-0 py-5">
+                  <FaAngleDown />
+                </div>
+              )}
+            </Link>
+          ))}
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
 }
