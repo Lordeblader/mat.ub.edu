@@ -22,26 +22,24 @@ const Header = ({ title, subtitle, breadcrumbs }: HeaderProps) => {
       <div className="bg-gray-50 px-6 md:px-10 lg:px-14 py-8">
         <div className="text-sm text-gray-400 mb-6 ml-1">
           {breadcrumbs.map((value: BreadcrumbLink, index) => (
-            <>
+            <span key={index}>
               {value.url ? (
-                <Link href={value.url}>
-                  <span key={index} className="inline">
-                    {value.title}
-                  </span>
+                <Link href={value.url} >
+                  <span className="inline">{value.title}</span>
                 </Link>
               ) : (
-                <span key={index} className="inline">
+                <span className="inline">
                   {value.title}
                 </span>
               )}
               <FaAngleRight className="text-gray-400 inline mx-4" />
-            </>
+            </span>
           ))}
           <span className="inline text-gray-600 font-normal">{title}</span>
         </div>
         <div>
           <h1 className="text-4xl">{title}</h1>
-          <p className="mt-2 mb-5 font-normal text-gray-400">{subtitle}</p>
+          {subtitle && <p className="mt-2 mb-5 font-normal text-gray-400">{subtitle}</p>}
         </div>
       </div>
     </>

@@ -35,26 +35,26 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden lg:flex justify-between mb-2 font-medium text-[0.95rem]">
-          <Link className="mx-3 2xl:mx-7" href="">
+          <Link className="mx-3 xl:mx-6" href="">
             La facultat
           </Link>
-          <Link className="mx-3 2xl:mx-7" href="/estudis">
+          <Link className="mx-3 xl:mx-6" href="/estudis">
             Estudis&nbsp;
             <FaAngleDown className="inline relative" />
           </Link>
-          <Link className="mx-3 2xl:mx-7" href="">
+          <Link className="mx-3 xl:mx-6" href="">
             Futurs estudiants
           </Link>
-          <Link className="mx-3 2xl:mx-7" href="">
+          <Link className="mx-3 xl:mx-6" href="">
             Recerca
           </Link>
-          <Link className="mx-3 2xl:mx-7" href="">
+          <Link className="mx-3 xl:mx-6" href="">
             Empreses
           </Link>
-          <Link className="mx-3 2xl:mx-7" href="">
+          <Link className="mx-3 xl:mx-6" href="">
             Mobilitat
           </Link>
-          <Link className="ml-3 2xl:ml-7" href="">
+          <Link className="ml-3 xl:mx-6" href="">
             Serveis
           </Link>
         </div>

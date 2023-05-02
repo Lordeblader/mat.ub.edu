@@ -1,28 +1,33 @@
 import Navbar from "@/layout/Navbar";
 import Header from "@/components/Header";
 import { BreadcrumbLink } from "@/components/Header";
-import Link from "next/link";
-import { FaAngleDown } from "react-icons/fa";
-import { MenuItem } from ".";
 
 import EnginyeriaInformatica from "@/assets/images/estudis/graus/informatica.jpg";
 import Matematiques from "@/assets/images/estudis/graus/matematiques.jpg";
+
 import MatesInfo from "@/assets/images/estudis/doble/matesinfo.jpeg";
 import MatesFisica from "@/assets/images/estudis/doble/matesfisica.jpeg";
 import MatesADE from "@/assets/images/estudis/doble/matesade.jpeg";
-import Image, { StaticImageData } from "next/image";
 
-interface SectionElement {
-  title: string;
-  img: StaticImageData | string;
-  url?: string;
-}
+import MasterCienciaDades from "@/assets/images/estudis/masters/mastercienciadades.jpeg";
+import MasterInteligencia from "@/assets/images/estudis/masters/masterinteligencia.jpg";
+import MasterMates from "@/assets/images/estudis/masters/mastermates.jpeg";
+import Biomedical from "@/assets/images/estudis/masters/biomedical2.jpg";
 
-interface Section {
-  title: string;
-  description: string;
-  elements: SectionElement[];
-}
+import MasterLogica from "@/assets/images/estudis/altres-masters/masterlogica.jpg";
+import MasterEstadistica from "@/assets/images/estudis/altres-masters/masterestadistica.jpeg";
+import MasterHistoria from "@/assets/images/estudis/altres-masters/masterhistoria.jpg";
+import MasterProfe from "@/assets/images/estudis/altres-masters/masterprofe.jpg";
+
+import MasterPropiDatascience from "@/assets/images/estudis/masters-propis/datascience.jpg";
+
+import DoctoratMatesInfo from "@/assets/images/estudis/doctorats/doctorat.jpg";
+import DoctoratCienciesAplicades from "@/assets/images/estudis/doctorats/doctorat2.jpg";
+import DoctoratHistoria from "@/assets/images/estudis/doctorats/historia.jpg";
+
+import Layout from "@/layout/Layout";
+import Sections, { Section } from "@/layout/Sections";
+import { MenuItem } from "@/components/SideMenu";
 
 export default function Estudis() {
   const breadcrumbs: BreadcrumbLink[] = [
@@ -52,10 +57,13 @@ export default function Estudis() {
       title: "Graus simultanis",
       children: [
         {
-          title: "Enginyeria Informàtica",
+          title: "Matemàtiques i Física",
         },
         {
-          title: "Matemàtiques",
+          title: "Matemàtiques i Eng. Informàtica",
+        },
+        {
+          title: "Matemàtiques i ADE"
         },
       ],
     },
@@ -63,10 +71,19 @@ export default function Estudis() {
       title: "Màsters",
       children: [
         {
-          title: "Enginyeria Informàtica",
+          title: "Matemàtica avançada",
         },
         {
-          title: "Matemàtiques",
+          title: "Master in Artificial Intelligence",
+        },
+        {
+          title: "Data Science",
+        },
+        {
+          title: "Biomedical Data Science",
+        },
+        {
+          title: "Computer Vision",
         },
       ],
     },
@@ -74,10 +91,13 @@ export default function Estudis() {
       title: "Doctorat",
       children: [
         {
-          title: "Enginyeria Informàtica",
+          title: "Matemàtiques i Informàtica",
         },
         {
-          title: "Matemàtiques",
+          title: "Enginyeria i Ciències Aplicades",
+        },
+        {
+          title: "Història de la Ciència",
         },
       ],
     },
@@ -124,6 +144,83 @@ export default function Estudis() {
         },
       ],
     },
+    {
+      title: "Màsters de la Facultat",
+      elements: [
+        {
+          title: "Fonaments de la ciència de dades",
+          img: MasterCienciaDades,
+        },
+        {
+          title: "Intel·ligència artificial",
+          img: MasterInteligencia,
+        },
+        {
+          title: "Matemàtica avançada",
+          img: MasterMates,
+        },
+        {
+          title: "Biomedical Data Science",
+          img: Biomedical,
+        },
+      ],
+    },
+    {
+      title: "Altres màsters on participa professor de la Facultat",
+      elements: [
+        {
+          title: "Lògica pura i aplicada",
+          img: MasterLogica,
+        },
+        {
+          title: "Estadística i investigació operativa",
+          img: MasterEstadistica,
+        },
+        {
+          title: "Història de la ciència: ciència, història i societat",
+          img: MasterHistoria,
+        },
+        {
+          title: "Màster de formació del professorat (Matemàtiques)",
+          img: MasterProfe,
+        },
+      ],
+    },
+    {
+      title: "Màsters i postgraus propis",
+      description: "Per a titulats universitaris",
+      elements: [
+        {
+          title:
+            "Introducció a la Data Science i al Machine Learning (Presencial)",
+          img: MasterPropiDatascience,
+        },
+        {
+          title:
+            "Introducció a la Data Science i al Machine Learning (A distància)",
+          img: MasterPropiDatascience,
+        },
+      ],
+    },
+    {
+      title: "Programes de doctorat",
+      description:
+        "Els programes de doctorat tenen com a objectiu la formació avançada en una de les seves línies de recerca per a la realització d’una tesi doctoral conduent a l'obtenció del títol de doctor per la Universitat de Barcelona dins de cada programa.",
+      elements: [
+        {
+          title: "Matemàtiques i Informàtica",
+          img: DoctoratMatesInfo,
+        },
+        {
+          title: "Enginyeria i ciències aplicades",
+          img: DoctoratCienciesAplicades,
+        },
+        {
+          title: "Història de la ciència",
+          img: DoctoratHistoria,
+        },
+      ],
+    },
   ];
 
   return (
@@ -134,70 +231,12 @@ export default function Estudis() {
         subtitle="Lorem ipsum dolor sit amet"
         breadcrumbs={breadcrumbs}
       />
-      <div className="flex flex-col md:flex-row px-5 md:px-10 lg:px-14 py-10">
-        <div className="md:w-1/4 mb-20 md:mb-0 md:px-0 md:pr-8">
-          {sideMenu.map((value, index) => (
-            <Link
-              href={value.url ?? ""}
-              key={index}
-              className="py-4 block border-b border-gray-300 text-sm font-medium relative"
-            >
-              {value.title}
-              {value.children && (
-                <div className="absolute right-3 inset-y-0 py-5">
-                  <FaAngleDown />
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
-        <div className="md:w-3/4 md:px-4">
-          <p className="mb-6">
-            {`La Facultat de Matemàtiques i Informàtica de la UB ofereix dos graus, tres dobles graus, tres màsters i està involucrada en els programes de doctorat de Matemàtiques i d'Enginyeries`}
-          </p>
-
-          <div>
-            {sections.map((section, index) => (
-              <section key={index}>
-                <header
-                  className="border-y border-gray-300 py-3"
-                  role="button"
-                  aria-expanded
-                >
-                  <h2 className="font-sans text-endeavour-600 font-normal text-xl relative">
-                    {section.title}
-                    <FaAngleDown className="absolute inset-y-1 right-2" />
-                  </h2>
-                </header>
-                <div className="py-5 px-1">
-                  <p>{section.description}</p>
-
-                  <div className="mt-6 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    {section.elements.map((element, index) => (
-                      <div key={index} className="">
-                        <Link
-                          className="flex justify-center items-center h-60 relative overflow-hidden"
-                          href={element.url ?? ""}
-                        >
-                          <Image
-                            src={element.img}
-                            alt={element.title}
-                            className="absolute object-cover w-full h-full"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-b from-[#030F1ACC] to-[#0062B288]"></div>
-                          <h3 className="relative text-white text-center text-2xl px-4">
-                            {element.title}
-                          </h3>
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Layout menu={sideMenu}>
+        <p className="mb-6">
+          {`La Facultat de Matemàtiques i Informàtica de la UB ofereix dos graus, tres dobles graus, tres màsters i està involucrada en els programes de doctorat de Matemàtiques i d'Enginyeries`}
+        </p>
+        <Sections sections={sections} />
+      </Layout>
     </main>
   );
 }

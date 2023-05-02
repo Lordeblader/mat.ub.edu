@@ -6,17 +6,12 @@ import Graduation from "@/assets/images/graduation-2148715_1920.jpg";
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa";
 import Head from "next/head";
+import SideMenu, { MenuItem } from "@/components/SideMenu";
 
 interface ActualitatItem {
   title: string;
   date: string;
   img: string;
-}
-
-export interface MenuItem {
-  title: string;
-  url?: string;
-  children?: MenuItem[];
 }
 
 export default function Home() {
@@ -45,27 +40,85 @@ export default function Home() {
   const sideMenu: MenuItem[] = [
     {
       title: "Estudis",
+      children: [
+        {
+          title: "Tots",
+          url: "/estudis",
+        },
+        {
+          title: "Graus",
+          children: [
+            {
+              title: "Enginyeria Informàtica",
+            },
+            {
+              title: "Matemàtiques",
+            },
+            {
+              title: "Matemàtiques i Física",
+            },
+            {
+              title: "Matemàtiques i Eng. Informàtica",
+            },
+            {
+              title: "Matemàtiques i ADE",
+            },
+          ],
+        },
+        {
+          title: "Postgraus propis",
+          url: "https://web.ub.edu/web/estudis/cercador-masters-postgraus?TipologiaDEnsenyament=5741412&centre=2974842"
+        },
+        {
+          title: "Màsters",
+          children: [
+            {
+              title: "Matemàtica avançada",
+            },
+            {
+              title: "Master in Artificial Intelligence",
+            },
+            {
+              title: "Data Science",
+            },
+            {
+              title: "Biomedical Data Science",
+            },
+            {
+              title: "Computer Vision",
+            },
+          ],
+        },
+        {
+          title: "Doctorat",
+          children: [
+            {
+              title: "Matemàtiques i Informàtica",
+            },
+            {
+              title: "Enginyeria i Ciències Aplicades",
+            },
+            {
+              title: "Història de la Ciència",
+            },
+          ],
+        },
+      ],
     },
     {
       title: "Portals",
       children: [
         {
-          title: "Graus",
+          title: "Món UB",
         },
         {
-          title: "Graus simultanis",
+          title: "Campus Virtual",
         },
         {
-          title: "Màsters",
+          title: "Alumni UB",
         },
         {
-          title: "Doctorat",
-        },
-        {
-          title: "Postgraus",
-        },
-        {
-          title: "Màsters i postgraus propis",
+          title: "Intranet (PDI i PAS)",
         },
       ],
     },
@@ -145,20 +198,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mb-10 md:mb-0 w-full sm:w-1/3 md:w-1/4 sm:px-4">
-          {sideMenu.map((value, index) => (
-            <Link
-              href={value.url ?? ""}
-              key={index}
-              className="py-4 block border-b border-gray-300 text-sm font-medium relative"
-            >
-              {value.title}
-              {value.children && (
-                <div className="absolute right-3 inset-y-0 py-5">
-                  <FaAngleDown />
-                </div>
-              )}
-            </Link>
-          ))}
+          <SideMenu items={sideMenu} />
         </div>
       </div>
     </main>
