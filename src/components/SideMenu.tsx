@@ -1,7 +1,6 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa";
-import clsx from "clsx";
 
 export interface MenuItem {
   title: string;
