@@ -39,7 +39,7 @@ const SideMenu = ({ items, className, children, ...props }: SideMenuProps) => {
                           </div>
                         </div>
                       </DisclosureButton>
-                      <div className="overflow-hidden py-2">
+                      <div className="overflow-hidden">
                         <Transition
                           show={open}
                           enter="transition-[max-height] duration-300 ease-in"

@@ -18,8 +18,8 @@ export interface BreadcrumbLink {
 const Header = ({ title, subtitle, breadcrumbs }: HeaderProps) => {
   return (
     <>
-      <div className="bg-gray-50 px-6 md:px-10 lg:px-14 py-8">
-        <div className="text-sm text-gray-400 mb-6 ml-1">
+      <div className="bg-gray-100 px-6 md:px-10 lg:px-14 py-8">
+        <div className="text-sm text-gray-500 mb-6 ml-1">
           {breadcrumbs.map((value: BreadcrumbLink, index) => (
             <span key={index}>
               {value.url ? (
