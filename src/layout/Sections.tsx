@@ -1,3 +1,5 @@
+'use client'
+
 import { Disclosure, Transition } from "@headlessui/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";

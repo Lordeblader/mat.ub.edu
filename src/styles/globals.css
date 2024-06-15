@@ -16,10 +16,20 @@
   }
 }
 
-body {
-  @apply text-gray-800
+html {
+  @apply min-h-screen
 }
 
-h1, h2, h3, h4, h5, h6, h7 {
+body {
+  @apply text-gray-800 min-h-screen
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
   @apply font-display;
 }

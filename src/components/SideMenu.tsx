@@ -1,3 +1,5 @@
+'use client'
+
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { FaAngleDown } from "react-icons/fa";

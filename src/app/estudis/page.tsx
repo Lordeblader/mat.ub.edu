@@ -1,3 +1,4 @@
+
 import Navbar from "@/layout/Navbar";
 import Header from "@/components/Header";
 import { BreadcrumbLink } from "@/components/Header";
@@ -224,19 +225,23 @@ export default function Estudis() {
   ];
 
   return (
-    <main>
-      <Navbar />
-      <Header
-        title="Estudis"
-        subtitle="Lorem ipsum dolor sit amet"
-        breadcrumbs={breadcrumbs}
-      />
-      <Layout menu={sideMenu}>
-        <p className="mb-6">
-          {`La Facultat de Matemàtiques i Informàtica de la UB ofereix dos graus, tres dobles graus, tres màsters i està involucrada en els programes de doctorat de Matemàtiques i d'Enginyeries`}
-        </p>
-        <Sections sections={sections} />
-      </Layout>
-    </main>
+    <>
+    <Navbar />
+    <Header
+      title="Estudis"
+      breadcrumbs={breadcrumbs}
+    />
+    <Layout menu={sideMenu}>
+      <p className="mb-6">
+        {`La Facultat de Matemàtiques i Informàtica de la UB ofereix dos graus, tres dobles graus, tres màsters i està involucrada en els programes de doctorat de Matemàtiques i d'Enginyeries`}
+      </p>
+      <Sections sections={sections} />
+    </Layout>
+    </>
   );
+}
+
+
+export const metadata = {
+  title: "Estudis | Facultat de Matemàtiques i Informàtica"
 }

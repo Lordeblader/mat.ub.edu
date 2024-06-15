@@ -1,3 +1,5 @@
+'use client'
+
 import Head from "next/head";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
@@ -16,9 +18,6 @@ export interface BreadcrumbLink {
 const Header = ({ title, subtitle, breadcrumbs }: HeaderProps) => {
   return (
     <>
-      <Head>
-        <title>{title} | Facultat de Matemàtiques i Informàtica</title>
-      </Head>
       <div className="bg-gray-50 px-6 md:px-10 lg:px-14 py-8">
         <div className="text-sm text-gray-400 mb-6 ml-1">
           {breadcrumbs.map((value: BreadcrumbLink, index) => (
